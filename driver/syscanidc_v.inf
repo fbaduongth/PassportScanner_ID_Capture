@@ -1,0 +1,126 @@
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=USB
+ClassGUID={36FC9E60-C465-11CF-8056-444553540000}
+provider=%SyscanIDC_V_Provider%
+CatalogFile=SyscanIDC_V.cat
+DriverVer=07/22/2010,1.0.0.0
+
+[SourceDisksNames]
+1=%SyscanIDC_V_Install%,,,
+
+[SourceDisksNames.x86]
+1 = %SyscanIDC_V_Install%,,,\x86
+
+[SourceDisksNames.amd64]
+1 = %SyscanIDC_V_Install%,,,\amd64
+
+[SourceDisksFiles]
+SyscanIDC_V.sys = 1
+
+[DestinationDirs]
+SyscanIDC_V.Files.Ext = 10,System32\Drivers
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+[Manufacturer]
+%SyscanIDC_V_Provider%=Device,NT,NTx86,NTamd64
+
+;for all platforms
+[Device]
+%VID_0A82&PID_0612.DeviceDesc%=SyscanIDC_V, USB\VID_0A82&PID_0612
+
+
+;for windows 2000 non intel platforms
+[Device.NT]
+%VID_0A82&PID_0612.DeviceDesc%=SyscanIDC_V, USB\VID_0A82&PID_0612
+
+
+;for x86 platforms
+[Device.NTx86]
+%VID_0A82&PID_0612.DeviceDesc%=SyscanIDC_V, USB\VID_0A82&PID_0612
+
+
+;for x64 platforms
+[Device.NTamd64]
+%VID_0A82&PID_0612.DeviceDesc%=SyscanIDC_V, USB\VID_0A82&PID_0612
+
+
+[SyscanIDC_V]
+CopyFiles=SyscanIDC_V.Files.Ext
+AddReg=SyscanIDC_V.AddReg
+
+[SyscanIDC_V.HW]
+AddReg=SyscanIDC_V.AddReg.Guid
+
+[SyscanIDC_V.Services]
+Addservice = SyscanIDC_V,2,SyscanIDC_V.AddService
+
+[SyscanIDC_V.NT]
+CopyFiles=SyscanIDC_V.Files.Ext
+AddReg=SyscanIDC_V.AddReg
+
+[SyscanIDC_V.NT.HW]
+AddReg=SyscanIDC_V.AddReg.Guid
+
+[SyscanIDC_V.NT.Services]
+Addservice = SyscanIDC_V,2,SyscanIDC_V.AddService
+
+
+[SyscanIDC_V.NTx86]
+CopyFiles=SyscanIDC_V.Files.Ext
+AddReg=SyscanIDC_V.AddReg
+
+[SyscanIDC_V.NTx86.HW]
+AddReg=SyscanIDC_V.AddReg.Guid
+
+[SyscanIDC_V.NTx86.Services]
+Addservice = SyscanIDC_V,2,SyscanIDC_V.AddService
+
+[SyscanIDC_V.NTamd64]
+CopyFiles=SyscanIDC_V.Files.Ext
+AddReg=SyscanIDC_V.AddReg
+
+[SyscanIDC_V.NTamd64.HW]
+AddReg=SyscanIDC_V.AddReg.Guid
+
+[SyscanIDC_V.NTamd64.Services]
+Addservice = SyscanIDC_V,2,SyscanIDC_V.AddService
+
+
+[SyscanIDC_V.AddReg]
+; Deprecating - do not use in new apps to identify a SyscanIDC_V driver
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,SyscanIDC_V.sys
+; You may optionally include a check for DriverBase in your application to check for a SyscanIDC_V driver
+HKR,,DriverBase,,SyscanIDC_V.sys
+HKR,"Parameters","MaximumTransferSize",0x10001,4096
+HKR,"Parameters","DebugLevel",0x10001,2
+HKR,,FriendlyName,,%SyscanIDC_V_Description%
+
+[SyscanIDC_V.AddService]
+DisplayName    = %SyscanIDC_V_Description%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %10%\System32\Drivers\SyscanIDC_V.sys
+AddReg         = SyscanIDC_V.AddReg
+LoadOrderGroup = Base
+
+[SyscanIDC_V.Files.Ext]
+SyscanIDC_V.sys
+
+[SyscanIDC_V.AddReg.Guid]
+HKR,,DriverGUID,,%SyscanIDC_V.GUID%
+
+[Strings]
+SyscanIDC_V_Provider    = "Syscan"
+SyscanIDC_V_Company     = "Syscan Inc."
+SyscanIDC_V_Description = "Syscan USB Driver"
+SyscanIDC_V_DisplayName = "Syscan USB Driver"
+SyscanIDC_V_Install     = "Syscan IDC-V Driver Installation Disk"
+VID_0A82&PID_0612.DeviceDesc="Syscan IDC-V USB Driver"
+SyscanIDC_V.GUID="{AE18AA60-7F6A-11d4-97DD-00010229B959}"
+SyscanIDC_V_Unused      = "."

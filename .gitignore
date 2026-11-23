@@ -1,0 +1,25 @@
+# Dữ liệu ảnh quét và danh sách khách (tránh lộ thông tin cá nhân)
+images/
+docs/20*/
+docss/
+inspect_old/
+*.csv
+*.xml
+
+# Ảnh tạm trong quá trình quét
+C01.bmp
+G01.bmp
+CH01.bmp
+GH01.bmp
+
+# Tệp tạm biên dịch / đóng gói / log
+publish_payload/
+app_payload.zip
+*.log
+*.bak
+_cap_tmp.exe
+*.pdb
+
+# Tài liệu không liên quan & script đẩy Git cục bộ
+Checklist_Toi_Uu_He_Thong_WiFi_Khach_San.*
+push_github.bat
