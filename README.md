@@ -46,6 +46,8 @@ Phần mềm quét, bóc tách tự động thông tin hộ chiếu quốc tế 
 ## 4. Hướng dẫn cài đặt
 
 ### Cách 1: Cài đặt bằng bộ cài đóng gói sẵn (Khuyên dùng)
+👉 **Tải bộ cài đặt mới nhất tại GitHub Releases**: [Tải Setup_PassportScanner_ID_Capture.exe (v1.0.0)](https://github.com/fbaduongth/PassportScanner_ID_Capture/releases/latest/download/Setup_PassportScanner_ID_Capture.exe) | [Trang Releases](https://github.com/fbaduongth/PassportScanner_ID_Capture/releases)
+
 1. Tải và chạy tệp `Setup_PassportScanner_ID_Capture.exe` với quyền Administrator.
 2. Chọn thư mục cài đặt (mặc định `C:\Program Files (x86)\Viettechsoft\ID_Capture`).
 3. Giữ nguyên các tùy chọn mặc định:
